@@ -1,0 +1,35 @@
+.rightbarFriend {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.rightbarFriend {
+    display: flex;
+    align-items: center;
+}
+
+.rightbarFriendPicContainer {
+    
+}
+
+.rightbarFriendPic {
+    height: 32px;
+    width: 32px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.rightbarFriendOnline {
+    height: 11px;
+    width: 11px;
+    border-radius: 50%;
+    background-color: limegreen;
+    position: relative;
+    display: inline-block;
+    top: -20px;
+    left: -5px;
+}
+
+.rightbarFriendName {
+    margin-left: 7px;
+}
