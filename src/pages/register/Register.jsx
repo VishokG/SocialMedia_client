@@ -4,7 +4,7 @@ import "./register.css"
 import axios from "axios";
 
 export default function Register() {
-    const username = useRef();
+    const name = useRef();
     const email = useRef();
     const password = useRef();
     const password2 = useRef();
@@ -16,7 +16,7 @@ export default function Register() {
             password2.current.setCustomValidity("Passwords do not match!");
         } else {
             const user = {
-                username: username.current.value,
+                name: name.current.value,
                 email: email.current.value,
                 password: password.current.value
             }
@@ -40,7 +40,7 @@ export default function Register() {
             </div>
             <div className="registerRight">
                 <form className="registerBox" onSubmit={handleSubmit}>
-                    <input type="text" className="registerInput" required placeholder="Username" ref={username} />
+                    <input type="text" className="registerInput" required placeholder="Name" ref={name} />
                     <input type="text" className="registerInput" required placeholder="Email" ref={email} />
                     <input type="text" className="registerInput" required placeholder="Password" ref={password}/>
                     <input type="text" className="registerInput" required placeholder="Confirm Password" ref={password2} />

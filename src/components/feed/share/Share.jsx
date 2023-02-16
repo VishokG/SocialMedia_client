@@ -24,12 +24,13 @@ export default function Share() {
         setFile(e.target.files[0]);
     }
     
+    // console.log(currUser);
   return (
     <div className="share">
         <div className="shareWrapper">
             <div className="shareTop">
-                <img src="/assets/person/1.jpeg" alt="" className="shareProfilePic" />
-                <input type="text" placeholder="What's on your mind Vishok" className="shareInput" ref={desc} />
+                <img src={currUser.profilePicture} alt="" className="shareProfilePic" />
+                <input type="text" placeholder={`What's on your mind ${currUser.name.split(" ")[0]}`} className="shareInput" ref={desc} />
             </div>
             <hr className="shareHr" />
             <form className="shareBottom" onSubmit={handleSubmit}>

@@ -10,12 +10,11 @@ export default function Rightbar(props) {
   const [userData, setUserData] = useState({});
   const [friendsData, setFriendsData] = useState([]);
   const [followed, setFollowed] = useState(false);
-  const {user: currUser, dispatch} = useContext(AuthContext); 
-
-  console.log(currUser);
+  const {user: currUser, dispatch} = useContext(AuthContext);
+  const currUserPresent = currUser?true:false;
   
   useEffect(() => {
-	if(props.profileId) setFollowed(currUser.following.includes(props.profileId));
+	if(props.profileId && currUser) setFollowed(currUser.following.includes(props.profileId));
   }, [])
 
   const followHandler = async () => {
@@ -68,7 +67,7 @@ export default function Rightbar(props) {
           <h4 className="rightbarTitle">Online Friends</h4>
           <ul className="rightbarFriendsList">
           {Users.map(user => {
-            return <OnlineFriend key={user.id} profilePic={user.profilePicture} username={user.username} />
+            return <OnlineFriend key={user.id} profilePic={user.profilePicture} name={user.name} />
           })}
           </ul>
         </div>
@@ -77,7 +76,7 @@ export default function Rightbar(props) {
   )} else {
 
     return <div className="rightbarAlternate">
-	{props.profileId !== currUser._id?<button onClick={followHandler} className="rightBarFollow">{followed? "Unfollow": "Follow"} {followed? <Remove />: <Add />}</button>:<></>}
+	{currUserPresent?(props.profileId !== currUser._id?(<button onClick={followHandler} className="rightBarFollowButton">{followed? "Unfollow": "Follow"}</button>):<></>):<></>}
       <h4 className="rightbarTitle">User Information</h4>
       <div className="rightbarInfo">
         <div className="rightbarInfoItem">
@@ -96,10 +95,12 @@ export default function Rightbar(props) {
       <div className="rightbarFollowing">
 
 	  	{friendsData.map(friend => <div className="rightbarFollowingItem">
-          <img src="/assets/person/2.jpeg" alt="" className="rightbarFollowingItemImg" />
-          <span className="rightbarFollowingItemName">{friend.username}</span>
+          <img src={friend.profilePicture} alt="" className="rightbarFollowingItemImg" />
+          <span className="rightbarFollowingItemName">{friend.name}</span>
         </div>)}
       </div>
     </div>
   }
 }
+
+//{followed? <Remove />: <Add />}

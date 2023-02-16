@@ -38,7 +38,7 @@ export default function Post(props) {
                     <img src={userData.profilePicture || "/assets/no_avatar.png"} alt="" className="postProfilePic" />
                     </Link>
                     <div>
-                    <span className="postNameofUser">{userData.username}</span>
+                    <span className="postNameofUser">{userData.name}</span>
                     <span className="postDatetime">{format(props.date)}</span>
                     </div>
                 </div>

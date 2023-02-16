@@ -32,7 +32,7 @@ export default function Sidebar() {
         <hr className="sidebarHr" />
         <ul className="sidebarFriendsList">
           {Users.map(user => {
-            return <CloseFriend key={user.id} profilePic={user.profilePicture} username={user.username} />
+            return <CloseFriend key={user.id} profilePic={user.profilePicture} name={user.name} />
           })}
         </ul>
       </div>

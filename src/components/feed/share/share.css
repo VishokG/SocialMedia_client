@@ -85,6 +85,10 @@
     border-radius: 3px;
 }
 
+.shareButton:hover {
+    cursor: pointer;
+}
+
 #file {
     display: none;
 }

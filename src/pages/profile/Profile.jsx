@@ -28,10 +28,10 @@ export default function Profile() {
       <div className="profileRightTop">
         <div className="profileCover">
           <img src="/assets/post/9.jpeg" alt="" className="profileCoverImg" />
-          <img src="/assets/person/6.jpeg" alt="" className="profileUserImg" />
+          <img src={userData.profilePicture} alt="" className="profileUserImg" />
         </div>
         <div className="profileInfo">
-          <h4 className="profileInfoName">{userData.username}</h4>
+          <h4 className="profileInfoName">{userData.name}</h4>
           <span className="profileInfoDesc"></span>
         </div>
       </div>

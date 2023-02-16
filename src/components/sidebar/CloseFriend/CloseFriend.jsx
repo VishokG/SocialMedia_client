@@ -4,7 +4,7 @@ export default function CloseFriend(props) {
   return (
     <li className="sidebarFriendsListItem">
         <img src={props.profilePic} alt="" className="sidebarFriendsListItemImg" />
-        <span className="sidebarFriendsListItemName">{props.username}</span>
+        <span className="sidebarFriendsListItemName">{props.name}</span>
     </li>
   )
 }

@@ -41,6 +41,18 @@
     flex: 2;
 }
 
+.rightbarTitle {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    color: rgb(88, 88, 88);
+}
+
+.rightbarInfoItem {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: rgb(88, 88, 88);
+}
+
 .rightbarFollowing {
     display: flex;
     flex-wrap: wrap;
@@ -64,4 +76,18 @@
 
 .rightbarFollowingItemName {
     margin-top: 10px;
+}
+
+.rightBarFollowButton {
+    margin-top: 20px;
+    border: none;
+    background-color: #FFB100;
+    color: white;
+    height: 30px;
+    width: 80px;
+    border-radius: 3px;
+}
+
+.rightBarFollowButton:hover {
+    cursor: pointer;
 }

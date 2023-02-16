@@ -7,7 +7,7 @@ export default function OnlineFriend(props) {
             <img src={props.profilePic} alt="" className="rightbarFriendPic" />
             <span className="rightbarFriendOnline"></span>
         </div>
-        <span className="rightbarFriendName">{props.username}</span>
+        <span className="rightbarFriendName">{props.name}</span>
     </li>
   )
 }
