@@ -6,13 +6,15 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
 
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
+
 export default function Feed(props) {
   const [posts, setPosts] = useState([]);
   const currUser = useContext(AuthContext).user;
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const URL = props.profileId?`/post/profile/${props.profileId}`:`/post/timeline/${currUser._id}`;
+      const URL = props.profileId?`${SERVER_URL}/post/profile/${props.profileId}`:`${SERVER_URL}/post/timeline/${currUser._id}`;
       const res = await axios.get(URL);
       setPosts(res.data.sort((p1, p2) => {
         return new Date(p2.createdAt) - new Date(p1.createdAt);

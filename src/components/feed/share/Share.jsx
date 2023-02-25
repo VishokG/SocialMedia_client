@@ -3,6 +3,7 @@ import axios from "axios";
 import { useContext, useState, useRef } from "react";
 import { AuthContext } from "../../../context/AuthContext";
 import "./share.css";
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 export default function Share() {
 
@@ -17,7 +18,7 @@ export default function Share() {
             description: desc.current.value
         }
 
-        await axios.post("/post/", newPost);
+        await axios.post(`${SERVER_URL}/post/`, newPost);
     }
 
     const handleFile = (e) => {

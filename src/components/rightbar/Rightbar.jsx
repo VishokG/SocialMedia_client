@@ -5,6 +5,7 @@ import { Users } from "../../dummyData";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 export default function Rightbar(props) {
   const [userData, setUserData] = useState({});
@@ -20,12 +21,12 @@ export default function Rightbar(props) {
   const followHandler = async () => {
 	try {
 		if(followed) {
-			await axios.put(`/user/${props.profileId}/unfollow`, {
+			await axios.put(`${SERVER_URL}/user/${props.profileId}/unfollow`, {
 				userId: currUser._id
 			});
 			dispatch({type: "UNFOLLOW", payload: props.profileId});
 		} else {
-			await axios.put(`/user/${props.profileId}/follow`, {
+			await axios.put(`${SERVER_URL}/user/${props.profileId}/follow`, {
 				userId: currUser._id
 			});
 			dispatch({type: "FOLLOW", payload: props.profileId});

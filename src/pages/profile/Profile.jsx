@@ -6,6 +6,7 @@ import "./profile.css";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 export default function Profile() {
 
@@ -14,7 +15,7 @@ export default function Profile() {
 
   useEffect(() => {
         const fetchUser = async () => {
-            const res = await axios.get(`/user/${params.profileId}`);
+            const res = await axios.get(`${SERVER_URL}/user/${params.profileId}`);
             setUserData(res.data);
         }
         fetchUser();

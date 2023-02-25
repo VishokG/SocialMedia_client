@@ -2,6 +2,7 @@ import { useRef } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import "./register.css"
 import axios from "axios";
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 export default function Register() {
     const name = useRef();
@@ -22,7 +23,7 @@ export default function Register() {
             }
 
             try {
-                await axios.post("/auth/register/", user);
+                await axios.post(`${SERVER_URL}/auth/register/`, user);
                 navigate("/login");
             } catch(err) {
                 console.log(err.response);

@@ -6,6 +6,7 @@ import "./post.css";
 import {format} from "timeago.js";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthContext";
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 export default function Post(props) {
     // const userData = Users.filter(user => user.id === props.id)[0]
@@ -16,7 +17,7 @@ export default function Post(props) {
     const currUser = useContext(AuthContext).user;
 
 	const likeHandler = async () => {
-        await axios.put(`/post/${props.postId}/like/`, {userId: currUser._id});
+        await axios.put(`${SERVER_URL}/post/${props.postId}/like/`, {userId: currUser._id});
 		setLikes(isLiked?likes-1:likes+1);
 		setIsLiked(!isLiked);
 	}
